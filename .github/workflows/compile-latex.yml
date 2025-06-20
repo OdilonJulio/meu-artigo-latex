@@ -1,0 +1,21 @@
+name: Compilar LaTeX
+on: [push]  # Executa a cada push no repositório
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Compilar LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex  # Substitua pelo nome do seu arquivo .tex principal
+          compiler: pdflatex   # Ou xelatex/lualatex se necessário
+
+      - name: Upload PDF como artefato
+        uses: actions/upload-artifact@v3
+        with:
+          name: artigo-pdf
+          path: main.pdf       # Caminho do PDF gerado
