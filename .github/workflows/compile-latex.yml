@@ -15,7 +15,9 @@ jobs:
           compiler: pdflatex   # Ou xelatex/lualatex se necessário
 
       - name: Upload PDF como artefato
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf
-          path: main.pdf       # Caminho do PDF gerado
+          path: |
+		*.pdf
+		!*.log       # Caminho do PDF gerado
