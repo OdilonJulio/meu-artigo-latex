@@ -18,6 +18,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: artigo-pdf
-          path: |
-		*.pdf
-		!*.log       # Caminho do PDF gerado
+          path: main.pdf       # Caminho do PDF gerado
